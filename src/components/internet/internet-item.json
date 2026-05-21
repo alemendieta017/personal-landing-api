@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_internet_internet_items",
+  "info": {
+    "displayName": "InternetItem",
+    "icon": "globe"
+  },
+  "options": {},
+  "attributes": {
+    "velocidad": {
+      "type": "string"
+    },
+    "precio": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "internet_blocks",
+  "info": {
+    "singularName": "internet-block",
+    "pluralName": "internet-blocks",
+    "displayName": "InternetBlock"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "internetPlans": {
+      "type": "component",
+      "component": "internet.internet-item",
+      "repeatable": true
+    }
+  }
+}

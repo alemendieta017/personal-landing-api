@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_mobile_mobile_items",
+  "info": {
+    "displayName": "mobileItem",
+    "icon": "phone"
+  },
+  "options": {},
+  "attributes": {
+    "cantidad_gigabytes": {
+      "type": "string"
+    },
+    "precio": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

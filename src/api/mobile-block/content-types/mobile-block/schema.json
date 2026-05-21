@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "mobile_blocks",
+  "info": {
+    "singularName": "mobile-block",
+    "pluralName": "mobile-blocks",
+    "displayName": "MobileBlock"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "mobile_item": {
+      "type": "component",
+      "component": "mobile.mobile-item",
+      "repeatable": true
+    }
+  }
+}

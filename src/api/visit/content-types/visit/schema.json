@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "visits",
+  "info": {
+    "singularName": "visit",
+    "pluralName": "visits",
+    "displayName": "Visit"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "userAgent": {
+      "type": "string"
+    },
+    "ipAddress": {
+      "type": "string"
+    },
+    "referrer": {
+      "type": "string"
+    },
+    "building": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::building.building",
+      "inversedBy": "visits"
+    }
+  }
+}

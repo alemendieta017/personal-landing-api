@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_flow_flow_items",
+  "info": {
+    "displayName": "FlowItem"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "con_decodificador",
+        "sin_decodificador"
+      ]
+    },
+    "precio": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

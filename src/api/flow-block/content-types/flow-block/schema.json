@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "flow_blocks",
+  "info": {
+    "singularName": "flow-block",
+    "pluralName": "flow-blocks",
+    "displayName": "FlowBlock"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "flowItems": {
+      "type": "component",
+      "component": "flow.flow-item",
+      "repeatable": true
+    }
+  }
+}
