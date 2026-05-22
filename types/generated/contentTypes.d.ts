@@ -443,7 +443,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiBuildingBuilding extends Struct.CollectionTypeSchema {
   collectionName: 'buildings';
   info: {
-    displayName: 'Building';
+    displayName: 'Edificios';
     pluralName: 'buildings';
     singularName: 'building';
   };
@@ -474,7 +474,7 @@ export interface ApiBuildingBuilding extends Struct.CollectionTypeSchema {
 export interface ApiFlowBlockFlowBlock extends Struct.SingleTypeSchema {
   collectionName: 'flow_blocks';
   info: {
-    displayName: 'FlowBlock';
+    displayName: 'Flow';
     pluralName: 'flow-blocks';
     singularName: 'flow-block';
   };
@@ -504,7 +504,7 @@ export interface ApiFlowBlockFlowBlock extends Struct.SingleTypeSchema {
 export interface ApiInternetBlockInternetBlock extends Struct.SingleTypeSchema {
   collectionName: 'internet_blocks';
   info: {
-    displayName: 'InternetBlock';
+    displayName: 'Internet';
     pluralName: 'internet-blocks';
     singularName: 'internet-block';
   };
@@ -534,7 +534,7 @@ export interface ApiInternetBlockInternetBlock extends Struct.SingleTypeSchema {
 export interface ApiMobileBlockMobileBlock extends Struct.SingleTypeSchema {
   collectionName: 'mobile_blocks';
   info: {
-    displayName: 'MobileBlock';
+    displayName: 'Mobile';
     pluralName: 'mobile-blocks';
     singularName: 'mobile-block';
   };
@@ -564,7 +564,7 @@ export interface ApiMobileBlockMobileBlock extends Struct.SingleTypeSchema {
 export interface ApiVisitVisit extends Struct.CollectionTypeSchema {
   collectionName: 'visits';
   info: {
-    displayName: 'Visit';
+    displayName: 'Visitas';
     pluralName: 'visits';
     singularName: 'visit';
   };

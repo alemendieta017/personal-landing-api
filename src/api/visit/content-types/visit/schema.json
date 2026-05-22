@@ -4,7 +4,7 @@
   "info": {
     "singularName": "visit",
     "pluralName": "visits",
-    "displayName": "Visit"
+    "displayName": "Visitas"
   },
   "options": {
     "draftAndPublish": true

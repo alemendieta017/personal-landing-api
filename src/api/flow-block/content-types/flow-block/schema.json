@@ -4,7 +4,7 @@
   "info": {
     "singularName": "flow-block",
     "pluralName": "flow-blocks",
-    "displayName": "FlowBlock"
+    "displayName": "Flow"
   },
   "options": {
     "draftAndPublish": true

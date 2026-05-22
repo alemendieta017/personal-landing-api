@@ -4,7 +4,7 @@
   "info": {
     "singularName": "internet-block",
     "pluralName": "internet-blocks",
-    "displayName": "InternetBlock"
+    "displayName": "Internet"
   },
   "options": {
     "draftAndPublish": true
