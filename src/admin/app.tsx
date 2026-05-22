@@ -1,4 +1,4 @@
-import type { StrapiApp } from '@strapi/strapi/admin';
+import type { StrapiApp } from '@strapi/strapi/admin'
 
 export default {
   config: {
@@ -30,8 +30,18 @@ export default {
       // 'zh-Hans',
       // 'zh',
     ],
+    translations: {
+      en: {
+        'Auth.form.welcome.title': 'Portal de Administración Jesse - Personal',
+        'Auth.form.welcome.subtitle': 'Inicia sesión para continuar',
+      },
+      es: {
+        'Auth.form.welcome.title': 'Portal de Administración Jesse - Personal',
+        'Auth.form.welcome.subtitle': 'Inicia sesión para continuar',
+      },
+    },
   },
   bootstrap(app: StrapiApp) {
-    console.log(app);
+    console.log(app)
   },
-};
+}
