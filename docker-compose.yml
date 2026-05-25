@@ -1,0 +1,63 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: personal-landing-db
+    restart: always
+    environment:
+      POSTGRES_DB: personal_landing_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d personal_landing_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: ./personal-landing-api
+      dockerfile: Dockerfile.dev
+    container_name: personal-landing-api
+    restart: always
+    ports:
+      - '1337:1337'
+    env_file:
+      - .env
+    environment:
+      DATABASE_HOST: db
+    volumes:
+      - ./personal-landing-api:/app
+      - /app/node_modules
+      - /app/.cache
+      - /app/dist
+      - /app/.strapi
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./personal-landing-frontend
+      dockerfile: Dockerfile.dev
+    container_name: personal-landing-frontend
+    restart: always
+    ports:
+      - '3000:3000'
+    env_file:
+      - ./personal-landing-frontend/.env.local
+    environment:
+      STRAPI_API_URL: http://api:1337
+      WATCHPACK_POLLING: "true"
+    volumes:
+      - ./personal-landing-frontend:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - api
+
+volumes:
+  pgdata:
