@@ -1,0 +1,10 @@
+node_modules
+.cache
+dist
+.tmp
+.strapi
+.git
+.env
+.env.example
+README.md
+Dockerfile.dev

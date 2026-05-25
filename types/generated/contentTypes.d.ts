@@ -440,6 +440,38 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAgentAgent extends Struct.SingleTypeSchema {
+  collectionName: 'agents';
+  info: {
+    description: 'Datos del Agente de Ventas';
+    displayName: 'Agente';
+    pluralName: 'agents';
+    singularName: 'agent';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    apellido: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    foto_de_perfil: Schema.Attribute.Media<'images'>;
+    genero: Schema.Attribute.Enumeration<['femenino', 'masculino']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'femenino'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::agent.agent'> &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    telefono: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBuildingBuilding extends Struct.CollectionTypeSchema {
   collectionName: 'buildings';
   info: {
@@ -468,6 +500,33 @@ export interface ApiBuildingBuilding extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     visits: Schema.Attribute.Relation<'oneToMany', 'api::visit.visit'>;
+  };
+}
+
+export interface ApiComboCombo extends Struct.SingleTypeSchema {
+  collectionName: 'combos';
+  info: {
+    displayName: 'Combos';
+    pluralName: 'combos';
+    singularName: 'combo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ComboItem: Schema.Attribute.Component<'combos.combo-item', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::combo.combo'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1100,7 +1159,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::agent.agent': ApiAgentAgent;
       'api::building.building': ApiBuildingBuilding;
+      'api::combo.combo': ApiComboCombo;
       'api::flow-block.flow-block': ApiFlowBlockFlowBlock;
       'api::internet-block.internet-block': ApiInternetBlockInternetBlock;
       'api::mobile-block.mobile-block': ApiMobileBlockMobileBlock;

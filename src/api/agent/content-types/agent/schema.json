@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "agents",
+  "info": {
+    "singularName": "agent",
+    "pluralName": "agents",
+    "displayName": "Agente",
+    "description": "Datos del Agente de Ventas"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "apellido": {
+      "type": "string",
+      "required": true
+    },
+    "telefono": {
+      "type": "string",
+      "required": true
+    },
+    "genero": {
+      "type": "enumeration",
+      "enum": [
+        "femenino",
+        "masculino"
+      ],
+      "default": "femenino",
+      "required": true
+    },
+    "foto_de_perfil": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+FROM node:20-alpine
+
+# Install build dependencies for native node modules (needed for sharp/vips/pg compilation)
+RUN apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev
+
+WORKDIR /app
+
+# Copy dependency configuration files
+COPY package.json package-lock.json ./
+
+# Install dependencies inside the container
+RUN npm install
+
+# Copy application files (overwritten by volume mounting in docker-compose for dev)
+COPY . .
+
+ENV NODE_ENV=development
+
+EXPOSE 1337
+
+CMD ["npm", "run", "develop"]

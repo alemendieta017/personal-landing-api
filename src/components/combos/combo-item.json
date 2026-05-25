@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_combos_combo_items",
+  "info": {
+    "displayName": "ComboItem"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "biginteger"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "dos_productos",
+        "tres_productos"
+      ]
+    },
+    "internetSpeed": {
+      "type": "string"
+    },
+    "originalInternetSpeed": {
+      "type": "string"
+    },
+    "mobileData": {
+      "type": "string"
+    },
+    "originalMobileData": {
+      "type": "string"
+    },
+    "includesFlow": {
+      "type": "boolean"
+    },
+    "badge": {
+      "type": "string"
+    },
+    "isPopular": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

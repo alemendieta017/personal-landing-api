@@ -16,7 +16,7 @@
       ]
     },
     "precio": {
-      "type": "integer"
+      "type": "biginteger"
     }
   },
   "config": {}
