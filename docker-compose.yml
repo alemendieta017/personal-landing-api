@@ -19,7 +19,7 @@ services:
 
   api:
     build:
-      context: ./personal-landing-api
+      context: .
       dockerfile: Dockerfile.dev
     container_name: personal-landing-api
     restart: always
@@ -30,7 +30,7 @@ services:
     environment:
       DATABASE_HOST: db
     volumes:
-      - ./personal-landing-api:/app
+      - .:/app
       - /app/node_modules
       - /app/.cache
       - /app/dist
@@ -41,19 +41,19 @@ services:
 
   frontend:
     build:
-      context: ./personal-landing-frontend
+      context: ../personal-landing-frontend
       dockerfile: Dockerfile.dev
     container_name: personal-landing-frontend
     restart: always
     ports:
       - '3000:3000'
     env_file:
-      - ./personal-landing-frontend/.env.local
+      - ../personal-landing-frontend/.env.local
     environment:
       STRAPI_API_URL: http://api:1337
       WATCHPACK_POLLING: "true"
     volumes:
-      - ./personal-landing-frontend:/app
+      - ../personal-landing-frontend:/app
       - /app/node_modules
       - /app/.next
     depends_on:
