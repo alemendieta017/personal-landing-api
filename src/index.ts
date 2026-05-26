@@ -43,6 +43,7 @@ export default {
         originalPrice: number;
         originalInternetSpeed: string;
         originalMobileData: string;
+        invoiceDiscount?: number;
       }> = [
         {
           name: "Internet 400 Mbps + Flow",
@@ -134,6 +135,7 @@ export default {
           originalPrice: 440000,
           originalInternetSpeed: "800 Mbps",
           originalMobileData: "32 GB",
+          invoiceDiscount: 20000,
         },
         {
           name: "Internet 800 Mbps + Flow + Plan móvil 18 GB",
@@ -161,7 +163,8 @@ export default {
         !comboDoc ||
         !comboDoc.ComboItem ||
         comboDoc.ComboItem.length === 0 ||
-        !comboDoc.ComboItem[0].originalInternetSpeed;
+        !comboDoc.ComboItem[0].originalInternetSpeed ||
+        !comboDoc.ComboItem.some((item: any) => item.invoiceDiscount && item.invoiceDiscount > 0);
 
       if (needsSeed) {
         console.log(

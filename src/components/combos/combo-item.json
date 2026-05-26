@@ -11,6 +11,9 @@
     "price": {
       "type": "biginteger"
     },
+    "invoiceDiscount": {
+      "type": "biginteger"
+    },
     "type": {
       "type": "enumeration",
       "enum": ["dos_productos", "tres_productos"]
