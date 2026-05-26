@@ -2,6 +2,6 @@
  * visit router
  */
 
-import { factories } from '@strapi/strapi';
+import { factories } from "@strapi/strapi";
 
-export default factories.createCoreRouter('api::visit.visit');
+export default factories.createCoreRouter("api::visit.visit");

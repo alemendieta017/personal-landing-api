@@ -1,9 +1,9 @@
-import type { Schema, Struct } from '@strapi/strapi';
+import type { Schema, Struct } from "@strapi/strapi";
 
 export interface CombosComboItem extends Struct.ComponentSchema {
-  collectionName: 'components_combos_combo_items';
+  collectionName: "components_combos_combo_items";
   info: {
-    displayName: 'ComboItem';
+    displayName: "ComboItem";
   };
   attributes: {
     badge: Schema.Attribute.String;
@@ -15,29 +15,29 @@ export interface CombosComboItem extends Struct.ComponentSchema {
     originalInternetSpeed: Schema.Attribute.String;
     originalMobileData: Schema.Attribute.String;
     price: Schema.Attribute.BigInteger;
-    type: Schema.Attribute.Enumeration<['dos_productos', 'tres_productos']>;
+    type: Schema.Attribute.Enumeration<["dos_productos", "tres_productos"]>;
   };
 }
 
 export interface FlowFlowItem extends Struct.ComponentSchema {
-  collectionName: 'components_flow_flow_items';
+  collectionName: "components_flow_flow_items";
   info: {
-    displayName: 'FlowItem';
+    displayName: "FlowItem";
   };
   attributes: {
     precio: Schema.Attribute.BigInteger;
     title: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<
-      ['con_decodificador', 'sin_decodificador']
+      ["con_decodificador", "sin_decodificador"]
     >;
   };
 }
 
 export interface InternetInternetItem extends Struct.ComponentSchema {
-  collectionName: 'components_internet_internet_items';
+  collectionName: "components_internet_internet_items";
   info: {
-    displayName: 'InternetItem';
-    icon: 'globe';
+    displayName: "InternetItem";
+    icon: "globe";
   };
   attributes: {
     precio: Schema.Attribute.BigInteger;
@@ -46,10 +46,10 @@ export interface InternetInternetItem extends Struct.ComponentSchema {
 }
 
 export interface MobileMobileItem extends Struct.ComponentSchema {
-  collectionName: 'components_mobile_mobile_items';
+  collectionName: "components_mobile_mobile_items";
   info: {
-    displayName: 'mobileItem';
-    icon: 'phone';
+    displayName: "mobileItem";
+    icon: "phone";
   };
   attributes: {
     cantidad_gigabytes: Schema.Attribute.String;
@@ -57,13 +57,13 @@ export interface MobileMobileItem extends Struct.ComponentSchema {
   };
 }
 
-declare module '@strapi/strapi' {
+declare module "@strapi/strapi" {
   export module Public {
     export interface ComponentSchemas {
-      'combos.combo-item': CombosComboItem;
-      'flow.flow-item': FlowFlowItem;
-      'internet.internet-item': InternetInternetItem;
-      'mobile.mobile-item': MobileMobileItem;
+      "combos.combo-item": CombosComboItem;
+      "flow.flow-item": FlowFlowItem;
+      "internet.internet-item": InternetInternetItem;
+      "mobile.mobile-item": MobileMobileItem;
     }
   }
 }

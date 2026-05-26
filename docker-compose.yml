@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     ports:
-      - '5432:5432'
+      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -24,7 +24,7 @@ services:
     container_name: personal-landing-api
     restart: always
     ports:
-      - '1337:1337'
+      - "1337:1337"
     env_file:
       - .env
     environment:
@@ -46,7 +46,7 @@ services:
     container_name: personal-landing-frontend
     restart: always
     ports:
-      - '3000:3000'
+      - "3000:3000"
     env_file:
       - ../personal-landing-frontend/.env.local
     environment:

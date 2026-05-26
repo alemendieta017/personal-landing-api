@@ -13,10 +13,7 @@
     },
     "type": {
       "type": "enumeration",
-      "enum": [
-        "dos_productos",
-        "tres_productos"
-      ]
+      "enum": ["dos_productos", "tres_productos"]
     },
     "internetSpeed": {
       "type": "string"

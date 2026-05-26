@@ -2,6 +2,6 @@
  * mobile-block service
  */
 
-import { factories } from '@strapi/strapi';
+import { factories } from "@strapi/strapi";
 
-export default factories.createCoreService('api::mobile-block.mobile-block');
+export default factories.createCoreService("api::mobile-block.mobile-block");

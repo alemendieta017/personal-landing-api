@@ -1,4 +1,4 @@
-import type { Core } from '@strapi/strapi';
+import type { Core } from "@strapi/strapi";
 
 export default {
   /**
@@ -18,15 +18,18 @@ export default {
    */
   async bootstrap({ strapi }: { strapi: Core.Strapi }) {
     try {
-      console.log('--- Bootstrap: Checking Combos single type ---');
-      const uid = 'api::combo.combo';
-      
+      console.log("--- Bootstrap: Checking Combos single type ---");
+      const uid = "api::combo.combo";
+
       // In Strapi v5, single types can be queried with findFirst
       const comboDoc = await strapi.documents(uid).findFirst({
-        populate: ['ComboItem']
+        populate: ["ComboItem"],
       });
 
-      console.log('Existing combo document:', comboDoc ? JSON.stringify(comboDoc) : 'none');
+      console.log(
+        "Existing combo document:",
+        comboDoc ? JSON.stringify(comboDoc) : "none",
+      );
 
       const combosData: Array<{
         name: string;
@@ -52,7 +55,7 @@ export default {
           isPopular: false,
           originalPrice: 220000,
           originalInternetSpeed: "400 Mbps",
-          originalMobileData: ""
+          originalMobileData: "",
         },
         {
           name: "Internet 800 Mbps + Flow",
@@ -65,7 +68,7 @@ export default {
           isPopular: false,
           originalPrice: 320000,
           originalInternetSpeed: "800 Mbps",
-          originalMobileData: ""
+          originalMobileData: "",
         },
         {
           name: "Internet 400 Mbps + Plan móvil 18 GB",
@@ -78,7 +81,7 @@ export default {
           isPopular: false,
           originalPrice: 235000,
           originalInternetSpeed: "400 Mbps",
-          originalMobileData: "18 GB"
+          originalMobileData: "18 GB",
         },
         {
           name: "Internet 800 Mbps + Plan móvil 32 GB",
@@ -91,7 +94,7 @@ export default {
           isPopular: false,
           originalPrice: 370000,
           originalInternetSpeed: "800 Mbps",
-          originalMobileData: "32 GB"
+          originalMobileData: "32 GB",
         },
         {
           name: "Internet 400 Mbps + Flow + Plan móvil 18 GB",
@@ -104,7 +107,7 @@ export default {
           isPopular: false,
           originalPrice: 305000,
           originalInternetSpeed: "400 Mbps",
-          originalMobileData: "18 GB"
+          originalMobileData: "18 GB",
         },
         {
           name: "Internet 400 Mbps + Flow + Plan móvil 32 GB",
@@ -117,7 +120,7 @@ export default {
           isPopular: true,
           originalPrice: 340000,
           originalInternetSpeed: "400 Mbps",
-          originalMobileData: "32 GB"
+          originalMobileData: "32 GB",
         },
         {
           name: "Internet 800 Mbps + Flow + Plan móvil 32 GB",
@@ -130,7 +133,7 @@ export default {
           isPopular: true,
           originalPrice: 440000,
           originalInternetSpeed: "800 Mbps",
-          originalMobileData: "32 GB"
+          originalMobileData: "32 GB",
         },
         {
           name: "Internet 800 Mbps + Flow + Plan móvil 18 GB",
@@ -143,61 +146,65 @@ export default {
           isPopular: false,
           originalPrice: 405000,
           originalInternetSpeed: "800 Mbps",
-          originalMobileData: "18 GB"
-        }
+          originalMobileData: "18 GB",
+        },
       ];
 
       const dataToSave = {
         title: "Armá tu Combo y Multiplicá tus Beneficios",
-        subtitle: "Duplicamos la velocidad de tu internet y los gigas de tu línea móvil al combinar tus servicios.",
+        subtitle:
+          "Duplicamos la velocidad de tu internet y los gigas de tu línea móvil al combinar tus servicios.",
         ComboItem: combosData,
       };
 
-      const needsSeed = !comboDoc || 
-                         !comboDoc.ComboItem || 
-                         comboDoc.ComboItem.length === 0 || 
-                         !comboDoc.ComboItem[0].originalInternetSpeed;
+      const needsSeed =
+        !comboDoc ||
+        !comboDoc.ComboItem ||
+        comboDoc.ComboItem.length === 0 ||
+        !comboDoc.ComboItem[0].originalInternetSpeed;
 
       if (needsSeed) {
-        console.log('Seeding/Re-seeding combos with original speed/price fields...');
+        console.log(
+          "Seeding/Re-seeding combos with original speed/price fields...",
+        );
         if (comboDoc && comboDoc.documentId) {
           await strapi.documents(uid).update({
             documentId: comboDoc.documentId,
             data: dataToSave,
-            status: 'published'
+            status: "published",
           });
         } else {
           await strapi.documents(uid).create({
             data: dataToSave,
-            status: 'published'
+            status: "published",
           });
         }
-        console.log('Combos seeded successfully!');
+        console.log("Combos seeded successfully!");
       } else {
-        console.log('Combos already seeded. Skipping seed.');
+        console.log("Combos already seeded. Skipping seed.");
       }
 
-      console.log('--- Bootstrap: Checking Agent single type ---');
-      const agentUid = 'api::agent.agent';
+      console.log("--- Bootstrap: Checking Agent single type ---");
+      const agentUid = "api::agent.agent";
       const agentDoc = await strapi.documents(agentUid).findFirst({});
 
       if (!agentDoc) {
-        console.log('Seeding agent details...');
+        console.log("Seeding agent details...");
         await strapi.documents(agentUid).create({
           data: {
-            nombre: 'Jessica',
-            apellido: 'Ciancio',
-            telefono: '+595 994 925 946',
-            genero: 'femenino',
+            nombre: "Jessica",
+            apellido: "Ciancio",
+            telefono: "+595 994 925 946",
+            genero: "femenino",
           },
-          status: 'published'
+          status: "published",
         });
-        console.log('Agent seeded successfully!');
+        console.log("Agent seeded successfully!");
       } else {
-        console.log('Agent already seeded. Skipping.');
+        console.log("Agent already seeded. Skipping.");
       }
     } catch (err) {
-      console.error('Error seeding in bootstrap:', err);
+      console.error("Error seeding in bootstrap:", err);
     }
   },
 };

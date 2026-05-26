@@ -10,10 +10,7 @@
     },
     "type": {
       "type": "enumeration",
-      "enum": [
-        "con_decodificador",
-        "sin_decodificador"
-      ]
+      "enum": ["con_decodificador", "sin_decodificador"]
     },
     "precio": {
       "type": "biginteger"
