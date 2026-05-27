@@ -21,11 +21,30 @@
     "address": {
       "type": "string"
     },
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "default": "building",
+      "enum": [
+        "building",
+        "commercial"
+      ]
+    },
     "visits": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::visit.visit",
       "mappedBy": "building"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
