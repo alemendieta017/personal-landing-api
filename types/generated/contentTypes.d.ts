@@ -575,6 +575,7 @@ export interface ApiInternetBlockInternetBlock extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    commercialBuildingTitle: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
