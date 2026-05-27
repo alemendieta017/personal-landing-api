@@ -633,7 +633,7 @@ export interface ApiVisitVisit extends Struct.CollectionTypeSchema {
     singularName: 'visit';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     building: Schema.Attribute.Relation<'manyToOne', 'api::building.building'>;
