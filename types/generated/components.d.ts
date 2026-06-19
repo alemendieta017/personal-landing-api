@@ -54,6 +54,7 @@ export interface MobileMobileItem extends Struct.ComponentSchema {
   };
   attributes: {
     cantidad_gigabytes: Schema.Attribute.String;
+    portabilidad: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     precio: Schema.Attribute.BigInteger;
   };
 }

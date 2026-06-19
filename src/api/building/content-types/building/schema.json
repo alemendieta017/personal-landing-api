@@ -21,6 +21,12 @@
     "address": {
       "type": "string"
     },
+    "Barrio": {
+      "type": "string"
+    },
+    "Ciudad": {
+      "type": "string"
+    },
     "type": {
       "type": "enumeration",
       "required": true,

@@ -484,6 +484,8 @@ export interface ApiBuildingBuilding extends Struct.CollectionTypeSchema {
   };
   attributes: {
     address: Schema.Attribute.String;
+    Barrio: Schema.Attribute.String;
+    Ciudad: Schema.Attribute.String;
     code: Schema.Attribute.UID<'name'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

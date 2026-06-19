@@ -11,6 +11,10 @@
     },
     "precio": {
       "type": "biginteger"
+    },
+    "portabilidad": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}
